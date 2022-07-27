@@ -1,0 +1,147 @@
+$color-default-text: #404040;
+$color-default-border: #d2d2d2;
+
+.headerContainer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+
+  header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 40px;
+
+    button {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      right: 5px;
+      top: 5px;
+      border: 0px;
+      border-radius: 50%;
+      margin: 10px;
+      background-color: transparent;
+      transition: filter 0.2s;
+  
+      &:hover {
+        cursor: pointer;
+        filter: invert(43%) sepia(8%) saturate(0%) hue-rotate(141deg) brightness(93%) contrast(88%);
+      }
+    }
+
+    div {
+      position: relative;
+      width: 260px;
+      height: 260px;
+      margin-top: 30px;
+      margin-bottom: 10px;
+
+      img {
+        border-radius: 50%;
+      }
+    }
+
+    h1 {
+      font-size: 24px;
+      font-weight: 300;
+      color: $color-default-text;
+    }
+    
+    h2 {
+      font-size: 18px;
+      color: $color-default-text;
+      font-weight: 300;
+    }
+  }
+}
+
+.stackContainer {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  flex-direction: column;
+
+  article {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+
+    > div {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      padding: 20px;
+      margin: 10px;
+      border-radius: 5px;
+      box-shadow: 0 3px 5px $color-default-border;
+      transition: box-shadow 0.5s;
+
+      &:hover {
+        box-shadow: 0 3px 25px $color-default-border;
+      }
+
+      > div {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-bottom: 20px;
+        justify-content: center;
+
+        h1 {
+          font-size: 30px;
+          font-weight: lighter;
+          margin-left: 10px;
+        }
+
+        div {
+          position: relative;
+          width: 40px;
+          height: 40px;
+        }
+      }
+    }
+  }
+}
+
+.schedulesContainer {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 200px 40px 200px;
+}
+
+.contactContainer {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 200px 40px 200px;
+}
+
+.socialContainer {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 200px 40px 200px;
+
+  article {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    a {
+      text-decoration: none;
+      color: $color-default-text;
+      margin-left: 10px;
+      font-weight: 100;
+
+      &:hover {
+        cursor: pointer;
+        text-decoration: underline;
+      }
+    }
+  }
+}
