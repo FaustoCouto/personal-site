@@ -53,7 +53,7 @@ $secundary-text-color: #FFF;
       color: $primary-text-color;
     }
     
-    h2 {
+    h2, h3 {
       font-size: 18px;
       color: $primary-text-color;
       font-weight: 300;
@@ -70,11 +70,11 @@ $secundary-text-color: #FFF;
     border-radius: 5px;
     width: 250px;
     margin: 20px;
-    box-shadow: 0 3px 5px $primary-border-color;
+    box-shadow: 0 3px 10px $primary-border-color;
     transition: box-shadow 0.3s;
 
     &:hover {
-      box-shadow: 0 3px 25px $primary-border-color;
+      box-shadow: 0 3px 30px $primary-border-color;
     }
 
     header {
@@ -110,13 +110,10 @@ $secundary-text-color: #FFF;
         height: 200px;
       }
 
-      p:first-of-type {
-        height: 120px;
-      }
-
       p {
+        height: 120px;
         font-weight: lighter;
-        line-height: 20px;
+        line-height: 24px;
         margin-bottom: 20px;
         align-self: self-start;
       }
@@ -124,20 +121,35 @@ $secundary-text-color: #FFF;
   }
 }
 
-.schedulesContainer {
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  align-items: center;
-  padding: 40px 200px 40px 200px;
-}
-
 .contactContainer {
   display: flex;
-  flex: 1;
   flex-direction: column;
   align-items: center;
-  padding: 40px 200px 40px 200px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+
+  header {
+    padding: 20px;
+
+    h1 {
+      font-size: 20px;
+      font-weight: lighter;
+    }
+  }
+
+  article {
+
+    a {
+      font-size: 18px;
+      text-decoration: none;
+      color: $primary-text-color;
+      
+      &:hover {
+        cursor: pointer;
+        text-decoration: underline;
+      }
+    }
+  }
 }
 
 .socialContainer {
@@ -152,15 +164,28 @@ $secundary-text-color: #FFF;
     flex-direction: row;
     justify-content: center;
 
-    a {
-      text-decoration: none;
-      color: $primary-text-color;
-      margin-left: 10px;
-      font-weight: 100;
+    div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 10px;
 
-      &:hover {
-        cursor: pointer;
-        text-decoration: underline;
+      div {
+        position: relative;
+        width: 35px;
+        height: 30px;
+        margin-bottom: 5px;
+      }
+
+      a {
+        text-decoration: none;
+        color: $primary-text-color;
+        font-weight: 100;
+  
+        &:hover {
+          cursor: pointer;
+          text-decoration: underline;
+        }
       }
     }
   }
