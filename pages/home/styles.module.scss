@@ -161,8 +161,7 @@ $secundary-text-color: #FFF;
 
   article {
     display: flex;
-    flex-direction: row;
-    justify-content: center;
+    align-items: baseline;
 
     div {
       display: flex;
@@ -172,9 +171,22 @@ $secundary-text-color: #FFF;
 
       div {
         position: relative;
+        margin-bottom: 5px;
+      }
+
+      :global .instagram-logo {
+        width: 35px;
+        height: 35px;
+      }
+
+      :global .youtube-logo {
         width: 35px;
         height: 30px;
-        margin-bottom: 5px;
+      }
+
+      :global .linkedin-logo {
+        width: 35px;
+        height: 30px;
       }
 
       a {
@@ -188,5 +200,19 @@ $secundary-text-color: #FFF;
         }
       }
     }
+  }
+}
+
+.repoContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  header {
+
+  }
+
+  article {
+
   }
 }

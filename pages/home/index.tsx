@@ -1,8 +1,30 @@
 import Head from "next/head"
 import Image from "next/image"
+import { useCallback, useEffect, useMemo, useState } from "react"
+
+import { RepositoryList } from "@components";
+import { IRepository } from "types";
+
 import styles from "./styles.module.scss"
 
 const Home = () => {
+  const [repoList, setRepoList] = useState<IRepository[]>([]);
+
+  const getRepoList = useCallback(async () => {
+    const repo = await fetch("https://api.github.com/users/faustocouto/repos");
+    const response = repo.json() as Promise<IRepository[]>
+    const myRepoList = await (await response).filter((repository) => 
+      repository.fork === false && repository.private === false
+    )
+    setRepoList(myRepoList);
+  }, []);
+
+  useEffect(() => {
+    getRepoList();
+  }, [getRepoList]);
+
+  const memoRepoList = useMemo(() => repoList, [repoList]);
+
   return (
     <>
       <Head>
@@ -14,7 +36,7 @@ const Home = () => {
             <Image layout="fill" src={"/assets/settings-icon.svg"} alt={"Ícone de configurações"}/>
           </button>
           <div>
-            <Image layout="fill" src={"https://avatars.githubusercontent.com/u/18406651?v=4"} alt={"Fausto"} />
+            <Image layout="fill" src={"https://avatars.githubusercontent.com/u/18406651?v=4"} alt={"Fausto photo"} />
           </div>
           <h1>Fausto Couto</h1>
           <h2>Desenvolvedor de software</h2>
@@ -64,6 +86,14 @@ const Home = () => {
           </article>
         </article>
       </section>
+      <section className={styles.repoContainer}>
+        <header>
+          <h1>Meus repositórios públicos</h1>
+        </header>
+        <article>
+          <RepositoryList repositoryList={memoRepoList} />
+        </article>
+      </section>
       <section className={styles.contactContainer}>
         <header>
           <h1>Deseja entrar em contato? Me manda um e-mail.</h1>
@@ -75,19 +105,19 @@ const Home = () => {
       <section className={styles.socialContainer}>
         <article>
           <div>
-            <div>
+            <div className="instagram-logo">
               <Image layout="fill" src={"/assets/instagram-logo.png"} alt={"logo instagram"} />
             </div>
             <a target={"_blank"} href="https://www.instagram.com/faustocouto31/" rel="noreferrer">Instagram</a>
           </div>
           <div>
-            <div>
+            <div className="youtube-logo">
               <Image layout="fill" src={"/assets/youtube-logo.png"} alt={"logo youtube"} />
             </div>
             <a target={"_blank"} href="https://www.youtube.com/channel/UC1q4etQCsvfJB3Fc24kO0ZQ" rel="noreferrer">Youtube</a>
           </div>
           <div>
-            <div>
+            <div className="linkedin-logo">
               <Image layout="fill" src={"/assets/linkedin-logo.png"} alt={"logo linkedin"} />
             </div>
             <a target={"_blank"} href="https://www.linkedin.com/in/fausto-couto/" rel="noreferrer">Linkedin</a>
