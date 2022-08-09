@@ -14,7 +14,7 @@ const Home = () => {
     const repo = await fetch("https://api.github.com/users/faustocouto/repos");
     const response = repo.json() as Promise<IRepository[]>
     const myRepoList = await (await response).filter((repository) => 
-      repository.fork === false && repository.private === false
+      repository.fork === false
     )
     setRepoList(myRepoList);
   }, []);
@@ -44,51 +44,56 @@ const Home = () => {
         </header>
       </section>
       <section className={styles.stackContainer}>
+        <header>
+          <h1>Minha Stack</h1>
+        </header>
         <article>
-          <header>
-            <div>
-              <Image layout="fill" src={"/assets/logo-react.svg"} alt={"logo react"} />
-            </div>
-            <h1>React</h1>
-          </header>
           <article>
-            <div>
-              <Image layout="fill" src={"/assets/experience-design.svg"} alt={"design ui"} />
-            </div>
-            <p>Uma biblioteca JavaScript para criar interfaces de usuário tanto para web quanto para mobile (iOS e android) com react-native.</p>
+            <header>
+              <div>
+                <Image layout="fill" src={"/assets/logo-react.svg"} alt={"logo react"} />
+              </div>
+              <h1>React</h1>
+            </header>
+            <article>
+              <div>
+                <Image layout="fill" src={"/assets/experience-design.svg"} alt={"design ui"} />
+              </div>
+              <p>Uma biblioteca JavaScript para criar interfaces de usuário tanto para web quanto para mobile (iOS e android) com react-native.</p>
+            </article>
           </article>
-        </article>
-        <article>
-          <header>
-            <div className={styles.largeLogo}>
-              <Image layout="fill" src={"http://nodejs.org/static/images/logo.svg"} alt={"logo node"} />
-            </div>
-          </header>
           <article>
-            <div>
-              <Image layout="fill" src={"/assets/server-cluster.svg"} alt={"design server"} />
-            </div>
-            <p>Node.js® é um runtime JavaScript construído no mecanismo JavaScript V8 do Chrome.</p>
+            <header>
+              <div className={styles.largeLogo}>
+                <Image layout="fill" src={"http://nodejs.org/static/images/logo.svg"} alt={"logo node"} />
+              </div>
+            </header>
+            <article>
+              <div>
+                <Image layout="fill" src={"/assets/server-cluster.svg"} alt={"design server"} />
+              </div>
+              <p>Node.js® é um runtime JavaScript construído no mecanismo JavaScript V8 do Chrome.</p>
+            </article>
           </article>
-        </article>
-        <article>
-          <header>
-            <div>
-              <Image layout="fill" src={"/assets/logo-postgresql.png"} alt={"logo postgresql"} />
-            </div>
-            <h1>PostgreSQL</h1>
-          </header>
           <article>
-            <div>
-              <Image layout="fill" src={"/assets/server.svg"} alt={"logo database"} />
-            </div>
-            <p>O PostgreSQL é um sistema de banco de dados objeto-relacional de código aberto com uma forte reputação de confiabilidade, robustez de recursos e desempenho.</p>
+            <header>
+              <div>
+                <Image layout="fill" src={"/assets/logo-postgresql.png"} alt={"logo postgresql"} />
+              </div>
+              <h1>PostgreSQL</h1>
+            </header>
+            <article>
+              <div>
+                <Image layout="fill" src={"/assets/server.svg"} alt={"logo database"} />
+              </div>
+              <p>O PostgreSQL é um sistema de banco de dados objeto-relacional de código aberto com uma forte reputação de confiabilidade, robustez de recursos e desempenho.</p>
+            </article>
           </article>
         </article>
       </section>
       <section className={styles.repoContainer}>
         <header>
-          <h1>Meus repositórios públicos</h1>
+          <h1>Meus repositórios</h1>
         </header>
         <article>
           <RepositoryList repositoryList={memoRepoList} />

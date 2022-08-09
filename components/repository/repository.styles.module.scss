@@ -1,0 +1,64 @@
+.containerRepository {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  border: 1px solid #dedede;
+  font-weight: lighter;
+  line-height: 28px;
+  font-size: 16px;
+
+  strong {
+    font-weight: 400;
+    color: #505050;
+  }
+
+  button {
+    border: none;
+    background: transparent;
+
+    :hover {
+      cursor: pointer;
+    }
+  }
+
+  svg {
+    color: rgb(36, 36, 36);
+    font-size: 22px;
+  }
+
+  :global .header-repository {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    div {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      width: 90px;
+    }
+  }
+
+  :global .description-repository {
+    line-height: 28px;
+    height: 80px;
+    overflow-y: auto;
+  }
+
+  :global .dates {
+    display: flex;
+    flex-direction: row;
+
+    p {
+      margin-right: 10px;
+    }
+  }
+
+  :global .footer-repository {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
