@@ -189,8 +189,8 @@ $secundary-text-color: #FFF;
       }
 
       :global .instagram-logo {
-        width: 35px;
-        height: 35px;
+        width: 30px;
+        height: 30px;
       }
 
       :global .youtube-logo {
@@ -207,6 +207,7 @@ $secundary-text-color: #FFF;
         text-decoration: none;
         color: $primary-text-color;
         font-weight: 100;
+        font-size: 14px;
   
         &:hover {
           cursor: pointer;
