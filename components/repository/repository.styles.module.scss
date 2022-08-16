@@ -32,11 +32,23 @@
     justify-content: space-between;
     align-items: center;
 
+    button, a {
+      padding: 5px;
+      border-radius: 50%;
+      line-height: 1px;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background-color: #e7e7e7;
+      }
+    }
+
     div {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
       width: 90px;
+      align-items: center;
     }
   }
 
@@ -58,7 +70,7 @@
   :global .footer-repository {
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: flex-end;
     justify-content: space-between;
   }
 }

@@ -10,12 +10,14 @@ $secundary-text-color: #FFF;
   display: flex;
   justify-content: center;
   margin-bottom: 50px;
+  background-color: $primary-text-color;
 
   header {
     display: flex;
     flex-direction: column;
     align-items: center;
     line-height: 40px;
+    margin-bottom: 20px;
 
     button {
       position: absolute;
@@ -27,11 +29,9 @@ $secundary-text-color: #FFF;
       border-radius: 50%;
       margin: 10px;
       background-color: transparent;
-      transition: filter 0.2s;
   
       &:hover {
         cursor: pointer;
-        filter: invert(43%) sepia(8%) saturate(0%) hue-rotate(141deg) brightness(93%) contrast(88%);
       }
     }
 
@@ -50,12 +50,12 @@ $secundary-text-color: #FFF;
     h1 {
       font-size: 24px;
       font-weight: 300;
-      color: $primary-text-color;
+      color: #FFF;
     }
     
     h2, h3 {
       font-size: 18px;
-      color: $primary-text-color;
+      color: #FFF;
       font-weight: 300;
     }
   }
@@ -65,73 +65,14 @@ $secundary-text-color: #FFF;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 965px;
 
   header {
     font-weight: 400;
     font-size: 28px;
     color: $primary-text-color;
-  }
-
-  > article {
-    display: flex;
-    flex-direction: row;
-    margin-top: 30px;
-
-    > article {
-      padding: 20px;
-      border-radius: 5px;
-      width: 250px;
-      margin: 20px;
-      box-shadow: 0 3px 10px $primary-border-color;
-      transition: box-shadow 0.3s;
-  
-      &:hover {
-        box-shadow: 0 3px 30px $primary-border-color;
-      }
-  
-      header {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        background-color: $primary-text-color;
-        padding: 10px;
-        border-radius: 5px;
-        color: $secundary-text-color;
-  
-        div {
-          position: relative;
-          width: 40px;
-          height: 40px;
-        }
-  
-        h1 {
-          font-size: 18px;
-          margin-left: 10px;
-        }
-      }
-  
-      article {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-  
-        div {
-          position: relative;
-          width: 200px;
-          height: 200px;
-        }
-  
-        p {
-          height: 120px;
-          font-weight: lighter;
-          line-height: 24px;
-          margin-bottom: 20px;
-          align-self: self-start;
-        }
-      }
-    }
   }
 }
 
@@ -148,6 +89,13 @@ $secundary-text-color: #FFF;
     h1 {
       font-size: 20px;
       font-weight: lighter;
+    }
+
+    @media (max-width: 460px) {
+      h1 {
+        font-size: 18px;
+        text-align: center;
+      }
     }
   }
 
@@ -233,8 +181,20 @@ $secundary-text-color: #FFF;
   article {
     display: grid;
     margin-top: 50px;
-    grid-template-columns: 470px 470px;
+    grid-template-columns: 460px 460px;
     column-gap: 10px;
     row-gap: 10px;
+  }
+
+  @media (max-width: 965px) {
+    article {
+      grid-template-columns: 440px;
+    }
+  }
+
+  @media (max-width: 460px) {
+    article {
+      grid-template-columns: 340px;
+    }
   }
 }
