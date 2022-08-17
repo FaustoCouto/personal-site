@@ -9,6 +9,7 @@ import {
 import { Badge, Tooltip } from "@mui/material"
 
 import styles from "./repository.styles.module.scss"
+import { getText } from "@language";
 
 interface IProps {
   repositoryList: IRepository[];
@@ -35,17 +36,17 @@ export const RepositoryList: React.FC<IProps> = ({ repositoryList }) => {
                   badgeContent={repo.forks_count}
                   color="primary"
                 >
-                  <Tooltip placement="top" title={"Quantifade de forks"}>
+                  <Tooltip placement="top" title={getText("repository:tooltip:fork-quantity")}>
                     <ForkRightOutlined />
                   </Tooltip>
                 </Badge>
                 <a target={"_blank"} href={repo.clone_url} rel="noreferrer">
-                  <Tooltip placement="top" title={"ir para repositório"}>
+                  <Tooltip placement="top" title={getText("repository:tooltip:go-to-repository")}>
                     <BookOutlined />
                   </Tooltip>
                 </a>
                 <button onClick={() => handlerClickToCopy(repo.clone_url)}>
-                  <Tooltip placement="top" title={"Copiar url do repositório"}>
+                  <Tooltip placement="top" title={getText("repository:tooltip:copy-repository-url")}>
                     <ContentCopyOutlined/>
                   </Tooltip>
                 </button>
@@ -56,17 +57,17 @@ export const RepositoryList: React.FC<IProps> = ({ repositoryList }) => {
             </p>
             <div className="dates">
               <p>
-                <strong>Criado em: </strong>
+                <strong>{getText("repository:label:create-at")}</strong>
                 {new Date(repo.created_at).toLocaleString("pt-BR", dateOptions)}
               </p>
               <p>
-                <strong>última atualização em: </strong>
+                <strong>{getText("repository:label:updated-at")} </strong>
                 {new Date(repo.updated_at).toLocaleString("pt-BR", dateOptions)}
               </p>
             </div>
             <div className="footer-repository">
-              <p><strong>Licença: </strong>{repo.license?.name}</p>
-                <Tooltip placement="top" title={"Repositório público"}>
+              <p><strong>{getText("repository:label:license")} </strong>{repo.license?.name}</p>
+                <Tooltip placement="top" title={getText("repository:tooltip:public-privacity")}>
                   <LockOpenOutlined />
                 </Tooltip>
             </div>

@@ -2,12 +2,13 @@ import Head from "next/head"
 import Image from "next/image"
 import { useCallback, useEffect, useMemo, useState } from "react"
 
-import { RepositoryList } from "@components";
+import { RepositoryList, Modal } from "@components";
+import { getText } from "@language";
 import { IRepository } from "types";
 
 import { ListTechnologies } from "@components";
 
-import styles from "./styles.module.scss"
+import styles from "./styles.module.scss";
 
 const Home = () => {
   const [repoList, setRepoList] = useState<IRepository[]>([]);
@@ -47,13 +48,13 @@ const Home = () => {
       </section>
       <section className={styles.stackContainer}>
         <header>
-          <h1>Tecnologias</h1>
+          <h1>{getText("technologies:title")}</h1>
         </header>
         <ListTechnologies />
       </section>
       <section className={styles.repoContainer}>
         <header>
-          <h1>Repositórios</h1>
+          <h1>{getText("repository:title")}</h1>
         </header>
         <article>
           <RepositoryList repositoryList={memoRepoList} />
@@ -89,6 +90,7 @@ const Home = () => {
           </div>
         </article>
       </section>
+      <Modal />
     </>
   )
 }
