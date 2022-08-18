@@ -1,13 +1,22 @@
-import React, { useState } from "react";
+import React, { useContext, ChangeEvent } from "react";
 import { CloseOutlined } from "@mui/icons-material";
+
+import { Context } from "@context";
+import { EOptionLang } from "@enums"
 
 import styles from "./modal.styles.module.scss";
 
 export const Modal: React.FC = () => {
-  const [isBrowser, setIsBrowser] = useState(true);
+  const { settings, setSettings, setShowSettingsModal, getText } = useContext(Context)
 
   const handlerHiddemModal = () => {
-    setIsBrowser(false)
+    setShowSettingsModal(false)
+  }
+
+  const handlerRadioBoxChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setSettings({
+      lang: e.target.value as EOptionLang,
+    });
   }
 
   return (
@@ -17,17 +26,28 @@ export const Modal: React.FC = () => {
           <CloseOutlined />
         </button>
         <div>
-          <h1>Escolha um idioma</h1>
+          <h1>{getText("idiom:title")}</h1>
           <form>
             <div>
-              <input id={"lang-En"} type={"radio"} name={"english"} value={"english"}/>
-              <label htmlFor={"lang-En"}>Inglês</label>
+              <input
+                id={"lang-En"}
+                type={"radio"}
+                value={EOptionLang.english}
+                checked={settings.lang === EOptionLang.english}
+                onChange={handlerRadioBoxChange}
+              />
+              <label htmlFor={"lang-En"}>{getText("language:en")}</label>
             </div>
             <div>
-              <input id={"lang-PtBR"} type={"radio"} name={"portuguese"} value={"portuguese"}/>
-              <label htmlFor={"lang-PtBR"}>Português</label>
+              <input
+                id={"lang-PtBR"}
+                type={"radio"}
+                value={EOptionLang.portuguese}
+                checked={settings.lang === EOptionLang.portuguese}
+                onChange={handlerRadioBoxChange}
+              />
+              <label htmlFor={"lang-PtBR"}>{getText("language:pt-br")}</label>
             </div>
-            <button>Salvar</button>
           </form>
         </div>
       </div>

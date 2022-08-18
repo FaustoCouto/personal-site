@@ -1,16 +1,12 @@
-import { textsPtBr } from "./translations/pt-br";
-import { textEn } from "./translations/en";
+import { EOptionLang } from "@enums";
+import { textsPtBr, textEn } from "@translations";
+import { TLang } from "@types";
 
-interface ILange {
-  ptbr: typeof textsPtBr;
-  en: typeof textEn;
-}
-
-const lang:ILange = {
+const langs: TLang = {
   "ptbr": textsPtBr,
   "en": textEn
 }
 
-export function getText(param: string) {
-  return Object(lang["ptbr"])[param];
+export function getTexts(text: string, idiom: EOptionLang) {
+  return Object(langs[idiom])[text];
 }

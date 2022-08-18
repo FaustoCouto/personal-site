@@ -1,9 +1,9 @@
 import Head from "next/head"
 import Image from "next/image"
-import { useCallback, useEffect, useMemo, useState } from "react"
+import { useCallback, useContext, useEffect, useMemo, useState } from "react"
 
+import { Context } from "@context";
 import { RepositoryList, Modal } from "@components";
-import { getText } from "@language";
 import { IRepository } from "types";
 
 import { ListTechnologies } from "@components";
@@ -11,6 +11,7 @@ import { ListTechnologies } from "@components";
 import styles from "./styles.module.scss";
 
 const Home = () => {
+  const { settings, showSettingsModal, setShowSettingsModal, getText } = useContext(Context);
   const [repoList, setRepoList] = useState<IRepository[]>([]);
 
   const getRepoList = useCallback(async () => {
@@ -28,6 +29,8 @@ const Home = () => {
 
   const memoRepoList = useMemo(() => repoList, [repoList]);
 
+  const handlerShowModal = () => setShowSettingsModal(true);
+
   return (
     <>
       <Head>
@@ -35,7 +38,7 @@ const Home = () => {
       </Head>
       <section className={styles.headerContainer}>
         <header>
-          <button>
+          <button onClick={handlerShowModal}>
             <Image layout="fill" src={"/assets/icons/settings-icon.svg"} alt={"Ícone de configurações"}/>
           </button>
           <div>
@@ -90,7 +93,7 @@ const Home = () => {
           </div>
         </article>
       </section>
-      <Modal />
+      { showSettingsModal && <Modal />}
     </>
   )
 }

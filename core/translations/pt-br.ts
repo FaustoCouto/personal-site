@@ -1,7 +1,9 @@
 import { repositoryTextsPtBR } from "./repository/pt-br";
 import { technologiesTextsPtBR } from "./technologies/pt-br";
+import { language } from "./settings/pt-br";
 
 export const textsPtBr = {
   ...repositoryTextsPtBR,
-  ...technologiesTextsPtBR
+  ...technologiesTextsPtBR,
+  ...language
 }

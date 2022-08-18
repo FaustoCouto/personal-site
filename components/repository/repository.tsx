@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { IRepository } from "types";
 import {
   BookOutlined,
@@ -9,13 +9,14 @@ import {
 import { Badge, Tooltip } from "@mui/material"
 
 import styles from "./repository.styles.module.scss"
-import { getText } from "@language";
+import { Context } from "@context";
 
 interface IProps {
   repositoryList: IRepository[];
 }
 
 export const RepositoryList: React.FC<IProps> = ({ repositoryList }) => {
+  const { getText } = useContext(Context);
 
   let dateOptions: Intl.DateTimeFormatOptions = {
     year: 'numeric', month: 'numeric', day: 'numeric',

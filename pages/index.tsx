@@ -1,6 +1,12 @@
-import type { NextPage } from 'next'
-import Home from "./home"
+import type { NextPage } from 'next';
+import Home from "./home";
 
-const Index: NextPage = () => <Home />
+import { ContextProvider } from "@context";
 
-export default Index
+const Index: NextPage = () => (
+  <ContextProvider>
+    <Home />
+  </ContextProvider>
+);
+
+export default Index;

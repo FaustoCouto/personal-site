@@ -17,7 +17,11 @@
     "incremental": true,
     "paths": {
       "@components": ["./components"],
-      "@language": ["./core/language"]
+      "@language": ["./core/language"],
+      "@enums": ["./core/enums"],
+      "@types": ["./core/types"],
+      "@context": ["./core/context"],
+      "@translations": ["./core/translations"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
