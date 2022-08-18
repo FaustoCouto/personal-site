@@ -1,3 +1,5 @@
+@import "@base";
+
 .ModalOverlay {
   display: block;
   position: fixed;
@@ -8,18 +10,18 @@
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: #00000060;
+  background-color: $background-color-60-opacity;
 
   > div {
     display: flex;
     position: relative;
     margin: auto;
     padding: 30px;
-    width: 400px;
+    width: 350px;
     justify-content: flex-start;
     font-size: 25px;
     border-radius: 5px;
-    background-color: #fefefe;
+    background-color: $secundary-color;
 
     > button {
       position: absolute;
@@ -35,7 +37,7 @@
 
       &:hover {
         cursor: pointer;
-        background-color: #f0f0f0;
+        background-color: $grey-100;
       }
     }
 
@@ -50,7 +52,7 @@
 
       h1 {
         font-size: 22px;
-        color: #585858;
+        color: $primary-color;
       }
 
       form {

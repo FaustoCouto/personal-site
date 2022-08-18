@@ -1,15 +1,17 @@
+@import "@base";
+
 .containerRepository {
   display: flex;
   flex-direction: column;
   padding: 10px;
-  border: 1px solid #dedede;
+  border: 1px solid $primary-border-color;
   font-weight: lighter;
   line-height: 28px;
   font-size: 16px;
 
   strong {
     font-weight: 400;
-    color: #505050;
+    color: $primary-color;
   }
 
   button {
@@ -39,7 +41,7 @@
       transition: background-color 0.3s;
 
       &:hover {
-        background-color: #e7e7e7;
+        background-color: $grey-100;
       }
     }
 

@@ -21,7 +21,8 @@
       "@enums": ["./core/enums"],
       "@types": ["./core/types"],
       "@context": ["./core/context"],
-      "@translations": ["./core/translations"]
+      "@translations": ["./core/translations"],
+      "@base": ["./pages/_base.scss"],
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

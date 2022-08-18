@@ -1,6 +1,4 @@
-$primary-text-color: #404040;
-$primary-border-color: #d2d2d2;
-$secundary-text-color: #FFF;
+@import "@base";
 
 .largeLogo {
   width: 70px !important;
@@ -10,7 +8,7 @@ $secundary-text-color: #FFF;
   display: flex;
   justify-content: center;
   margin-bottom: 50px;
-  background-color: $primary-text-color;
+  background-color: $primary-color;
 
   header {
     display: flex;
@@ -72,7 +70,7 @@ $secundary-text-color: #FFF;
   header {
     font-weight: 400;
     font-size: 28px;
-    color: $primary-text-color;
+    color: $primary-color;
   }
 }
 
@@ -104,7 +102,7 @@ $secundary-text-color: #FFF;
     a {
       font-size: 18px;
       text-decoration: none;
-      color: $primary-text-color;
+      color: $primary-color;
       
       &:hover {
         cursor: pointer;
@@ -153,7 +151,7 @@ $secundary-text-color: #FFF;
 
       a {
         text-decoration: none;
-        color: $primary-text-color;
+        color: $primary-color;
         font-weight: 100;
         font-size: 14px;
   
@@ -175,7 +173,7 @@ $secundary-text-color: #FFF;
   header {
     font-weight: 400;
     font-size: 28px;
-    color: $primary-text-color;
+    color: $primary-color;
   }
 
   article {

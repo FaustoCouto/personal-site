@@ -1,6 +1,4 @@
-$primary-text-color: #404040;
-$primary-border-color: #d2d2d2;
-$secundary-text-color: #FFF;
+@import "@base";
 
 .largeLogo {
   position: relative;
@@ -29,10 +27,10 @@ $secundary-text-color: #FFF;
       flex-direction: row;
       align-items: center;
       justify-content: center;
-      background-color: $primary-text-color;
+      background-color: $primary-color;
       padding: 10px;
       border-radius: 5px;
-      color: $secundary-text-color;
+      color: $secundary-color;
 
       h1 {
         font-size: 18px;

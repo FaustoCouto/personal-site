@@ -44,9 +44,9 @@ const Home = () => {
           <div>
             <Image layout="fill" src={"https://avatars.githubusercontent.com/u/18406651?v=4"} alt={"Fausto photo"} />
           </div>
-          <h1>Fausto Couto</h1>
-          <h2>Desenvolvedor de software</h2>
-          <h3>Desde 2016</h3>
+          <h1>{getText("home:person:name")}</h1>
+          <h2>{getText("home:role")}</h2>
+          <h3>{getText("home:since")}</h3>
         </header>
       </section>
       <section className={styles.stackContainer}>
@@ -65,7 +65,7 @@ const Home = () => {
       </section>
       <section className={styles.contactContainer}>
         <header>
-          <h1>Deseja entrar em contato? Me manda um e-mail.</h1>
+          <h1>{getText("home:cta")}</h1>
         </header>
         <article>
           <a href="mailto:faustocouto31@hotmail.com">faustocouto31@hotmail.com</a>
