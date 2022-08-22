@@ -2,6 +2,10 @@
 const path = require('path')
 
 const nextConfig = {
+  i18n: {
+    locales: ['en-US', 'pt-BR'],
+    defaultLocale: 'pt-BR',
+  },
   reactStrictMode: true,
   swcMinify: true,
   images: {

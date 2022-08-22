@@ -11,7 +11,7 @@ import { ListTechnologies } from "@components";
 import styles from "./styles.module.scss";
 
 const Home = () => {
-  const { settings, showSettingsModal, setShowSettingsModal, getText } = useContext(Context);
+  const { showSettingsModal, setShowSettingsModal, getText } = useContext(Context);
   const [repoList, setRepoList] = useState<IRepository[]>([]);
 
   const getRepoList = useCallback(async () => {

@@ -1,5 +1,5 @@
 export const language = {
   "idiom:title": "Idioma",
-  "language:en": "Inglês",
+  "language:en-US": "Inglês",
   "language:pt-br": "Português"
 }

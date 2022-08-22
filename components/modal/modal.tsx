@@ -1,4 +1,6 @@
 import React, { useContext, ChangeEvent } from "react";
+import { useRouter } from 'next/router'
+import Link from 'next/link'
 import { CloseOutlined } from "@mui/icons-material";
 
 import { Context } from "@context";
@@ -7,17 +9,16 @@ import { EOptionLang } from "@enums"
 import styles from "./modal.styles.module.scss";
 
 export const Modal: React.FC = () => {
-  const { settings, setSettings, setShowSettingsModal, getText } = useContext(Context)
+  const { settings, setShowSettingsModal, getText } = useContext(Context);
+  const router = useRouter();
 
   const handlerHiddemModal = () => {
-    setShowSettingsModal(false)
-  }
+    setShowSettingsModal(false);
+  };
 
-  const handlerRadioBoxChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setSettings({
-      lang: e.target.value as EOptionLang,
-    });
-  }
+  const handlerRadioBoxChange = (e: ChangeEvent<HTMLInputElement>) => (
+    router.push('/', '/', { locale: e.target.value })
+  );
 
   return (
     <section className={styles.ModalOverlay}>
@@ -32,18 +33,18 @@ export const Modal: React.FC = () => {
               <input
                 id={"lang-En"}
                 type={"radio"}
-                value={EOptionLang.english}
-                checked={settings.lang === EOptionLang.english}
+                value={EOptionLang["en-US"]}
+                checked={settings.lang === EOptionLang["en-US"]}
                 onChange={handlerRadioBoxChange}
               />
-              <label htmlFor={"lang-En"}>{getText("language:en")}</label>
+              <label htmlFor={"lang-En"}>{getText("language:en-US")}</label>
             </div>
             <div>
               <input
                 id={"lang-PtBR"}
                 type={"radio"}
-                value={EOptionLang.portuguese}
-                checked={settings.lang === EOptionLang.portuguese}
+                value={EOptionLang["pt-BR"]}
+                checked={settings.lang === EOptionLang["pt-BR"]}
                 onChange={handlerRadioBoxChange}
               />
               <label htmlFor={"lang-PtBR"}>{getText("language:pt-br")}</label>

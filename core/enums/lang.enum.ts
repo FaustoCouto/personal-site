@@ -1,4 +1,4 @@
 export enum EOptionLang {
-  portuguese = "ptbr",
-  english = "en"
+  "pt-BR" = "pt-BR",
+  "en-US" = "en-US"
 }
